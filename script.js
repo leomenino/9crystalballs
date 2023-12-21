@@ -1,4 +1,4 @@
-
+/*
 let chars = {
     1:{name:'Goku',gender:'Male',race:'Saiyan',affiliation:'Z Fighter',ki:'60,000,000',maxKi:'90,000,000,000,000,000,000,000,000',image:'https://res.cloudinary.com/dgtgbyo76/image/upload/v1699044374/hlpy6q013uw3itl5jzic.webp'},
     2:{name:'Vegeta',gender:'Male',race:'Saiyan',affiliation:'Z Fighter',ki:'54,000,000',maxKi:'19,840,000,000,000,000,000,000,000',image:'https://res.cloudinary.com/dgtgbyo76/image/upload/v1699044422/i9hpfjplth6gjudvhsx3.webp'},
@@ -119,3 +119,4 @@ function vanishForm() {
             //'<td><img src="' + imgGoingUp + '" alt="' + imgGoingUp + '" width="50"></td>' 
             //'<td><img src="' + imgGoingDown + '" alt="' + imgGoingDown + '" width="50"></td>'
     //'<td><img src="' + imgCorrect + '" alt="' + imgCorrect + '" width="50"></td>'
+    */

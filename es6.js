@@ -14,8 +14,6 @@ const chars = {
 const randomKey = Object.keys(chars)[Math.floor(Math.random() * Object.keys(chars).length)];
 const answer = chars[randomKey];
 
-console.log("typeof randomkey" + typeof randomKey);
-
 let rawInput;
 let input;
 let ki;
@@ -48,11 +46,128 @@ function submitForm() {
 }
 
 function resetForm() {
-    document.getElementById('myForm').reset();
+    document.getElementById('warrior-form').reset();
+}
+
+
+
+//downstairs code goes here if you fuckup you brain dead fuck.
+
+
+function verifyInput() {
+    for (const key in chars) {
+        if (rawInput.toLowerCase() === chars[key].name.toLowerCase()) {
+            if (alreadyGuessed()) {
+                resetForm();
+                return;
+            }
+            input = chars[key];
+            guessed.push(input.name.toLowerCase());
+        }
+    }
 }
 
 
 function charRow() {
+    // Create a new row for the boxes
+    const newRow = document.createElement('div');
+    newRow.className = 'boxes-row';
+    
+    // Create and append image box
+    const imageBox = document.createElement('div');
+    imageBox.id = 'image';
+    imageBox.className = 'box';
+    imageBox.innerHTML = `<img src="${input.image}" alt="${input.name}" width="50">`;
+    newRow.appendChild(imageBox);
+
+    // Verify and append content to other boxes
+    newRow.appendChild(verify('gender', 'gendername'));
+    newRow.appendChild(verify('race', 'racename'));
+    newRow.appendChild(verify('affiliation', 'affname'));
+
+    // Create and append Ki box
+    const kiBox = document.createElement('div');
+    kiBox.id = 'ki';
+    kiBox.className = 'box';
+    kiBox.textContent = `KI Power: ${ki}`;
+    newRow.appendChild(kiBox);
+
+    // Append the new row to the appropriate boxes container
+    const boxesContainer = document.querySelector('#row1');
+    boxesContainer.appendChild(newRow);
+
+    // Check if the second row exists; if not, create it
+    if (!document.querySelector('#row2')) {
+        const secondRow = document.createElement('div');
+        secondRow.className = 'boxes-row'; // Change this to 'boxes-row' if needed
+        secondRow.id = 'row2';
+        document.body.appendChild(secondRow);
+    }
+}
+
+function verify(property, id) {
+    const content = document.createElement('h2');
+    content.id = id;
+    content.textContent = input[property];
+
+    content.style.backgroundColor = input[property] === answer[property] ? 'green' : 'red';
+    content.style.margin = '5px'; // Adjust as needed
+
+    return content;
+}
+
+// Apply styles to the rows
+document.querySelector('#row1').style.display = 'flex';
+document.querySelector('#row1').style.flexDirection = 'column';
+document.querySelector('#row1').style.width = '100%';
+document.querySelector('#row1').style.alignItems = 'center';
+
+
+document.querySelector('#row2').style.display = 'flex';
+document.querySelector('#row2').style.flexDirection = 'column';
+document.querySelector('#row2').style.width = '100%';
+document.querySelector('#row2').style.alignItems = 'center';
+
+
+
+
+function alreadyGuessed() {
+    return guessed.includes(rawInput.toLowerCase());
+}
+
+
+function findKi() {
+    if (answer.maxKi !== input.maxKi) {
+        if (answer.maxKi > input.maxKi) {
+            return 'Hes stronger';
+        }
+        if (answer.maxKi < input.maxKi) {
+            return 'Youre stronger';
+        }
+    }
+    return 'You are the same';
+}
+
+function endGame() {
+    if (input.name === answer.name) {
+        vanishForm();
+    }
+}
+
+function vanishForm() {
+    const formElements = document.querySelectorAll('#warrior-form');
+
+    for (let i = 0; i < formElements.length; i++) {
+        formElements[i].style.display = 'none';
+    }
+}
+
+
+
+
+
+
+/*function charRow() {
     const row = document.createElement('tr');
 
     const imgCell = document.createElement('td');
@@ -79,46 +194,4 @@ function verify(property) {
 
     return cell;
 }
-
-function alreadyGuessed() {
-    return guessed.includes(rawInput.toLowerCase());
-}
-
-function verifyInput() {
-    for (const key in chars) {
-        if (rawInput.toLowerCase() === chars[key].name.toLowerCase()) {
-            if (alreadyGuessed()) {
-                resetForm();
-                return;
-            }
-            input = chars[key];
-            guessed.push(input.name.toLowerCase());
-        }
-    }
-}
-
-function findKi() {
-    if (answer.maxKi !== input.maxKi) {
-        if (answer.maxKi > input.maxKi) {
-            return 'Hes stronger';
-        }
-        if (answer.maxKi < input.maxKi) {
-            return 'Youre stronger';
-        }
-    }
-    return 'You are the same';
-}
-
-function endGame() {
-    if (input.name === answer.name) {
-        vanishForm();
-    }
-}
-
-function vanishForm() {
-    const formElements = document.querySelectorAll('#myForm label, #myForm input, #myForm button');
-
-    for (let i = 0; i < formElements.length; i++) {
-        formElements[i].style.display = 'none';
-    }
-}
+*/
