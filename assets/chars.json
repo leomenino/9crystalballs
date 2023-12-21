@@ -1,0 +1,22 @@
+{
+    "1":{"name":"Goku","gender":"Male","race":"Saiyan","afiiliation":"Z Fighter","ki":"60,000,000","maxKi":"90,000,000,000,000,000,000,000,000","image":"https://res.cloudinary.com/dgtgbyo76/image/upload/v1699044374/hlpy6q013uw3itl5jzic.webp",
+        "tip":"Who is Goku?"},
+    "2":{"name":"Vegeta","gender":"Male","race":"Saiyan","afiiliation":"Z Fighter","ki":"54,000,000","maxKi":"19,840,000,000,000,000,000,000,000","image":"https://res.cloudinary.com/dgtgbyo76/image/upload/v1699044422/i9hpfjplth6gjudvhsx3.webp",
+        "tip":"Who is Vegeta"},
+    "3":{"name":"Piccolo","gender":"Male","race":"kian","afiiliation":"Z Fighter","ki":"2,000,000","maxKi":"500,000,000","image":"https://res.cloudinary.com/dgtgbyo76/image/upload/v1699044481/u9fhpc9smihu2kud3cuc.webp",
+        "tip":"Who is Piccolo?"},
+    "4":{"name":"Bulma","gender":"Female","race":"Human","afiiliation":"Z Fighter","ki":"0","maxKi":"0","image":"https://res.cloudinary.com/dgtgbyo76/image/upload/v1699044496/bifhe9qarbrgvm0tsiru.webp",
+        "tip":"Who is Bulma?"},
+    "5":{"name":"Freezer","gender":"Male","race":"Frieza race","afiiliation":"Army of Frieza","ki":"530,000","maxKi":"52,710,000,000,000,000,000,000,000","image":"https://res.cloudinary.com/dgtgbyo76/image/upload/v1699044513/ux3n5u0tjdvysjao4w8s.webp",
+        "tip":"Who is Freezer?"},
+    "6":{"name":"Zarbon","gender":"Male","race":"Frieza race","afiiliation":"Army of Frieza","ki":"20,000","maxKi":"30,000","image":"https://res.cloudinary.com/dgtgbyo76/image/upload/v1699044531/jcdgte2shoaj2jh0ruob.webp",
+        "tip":"Who is Zarbon?"},
+    "7":{"name":"Dodoria","gender":"Male","race":"Frieza race","afiiliation":"Army of Frieza","ki":"18,000","maxKi":"20,000","image":"https://res.cloudinary.com/dgtgbyo76/image/upload/v1699044548/m2mixyphepp8qwcigb3g.webp",
+        "tip":"who is dodoria??"},
+    "8":{"name":"Ginyu","gender":"Male","race":"Frieza race","afiiliation":"Army of Frieza","ki":"9,000","maxKi":"25,000","image":"https://res.cloudinary.com/dgtgbyo76/image/upload/v1699129673/dxsl3rjhrfmajo2gealz.webp",
+        "tip":"who is dodoria??"},
+    "9":{"name":"Celula","gender":"Male","race":"Android","afiiliation":"Freelancer","ki":"250,000,000","maxKi":"5,000,000,000","image":"https://res.cloudinary.com/dgtgbyo76/image/upload/v1699044573/mz09ghskyzf0skprredi.webp",
+        "tip":"Who id Celula?"},
+    "10":{"name":"Gohan","gender":"Male","race":"Saiyan","afiiliation":"Z Fighter","ki":"45,000,000","maxKi":"40,000,000,000,000,000,000,000,000","image":"https://res.cloudinary.com/dgtgbyo76/image/upload/v1699044627/kigekwjt2m8nwopgvabv.webp",
+        "tip":"Who is Gohan"}
+}
