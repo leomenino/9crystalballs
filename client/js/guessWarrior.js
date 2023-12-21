@@ -232,13 +232,13 @@ function alreadyGuessed() {
 function findKi() {
     if (answer.maxKi !== input.maxKi) {
         if (answer.maxKi > input.maxKi) {
-            return 'Hes stronger';
+            return 'This character has less KI';
         }
         if (answer.maxKi < input.maxKi) {
-            return 'Youre stronger';
+            return 'This character has more KI';
         }
     }
-    return 'You are the same';
+    return 'You have the same KI';
 }
 
 function endGame() {
