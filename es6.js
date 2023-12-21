@@ -7,12 +7,14 @@ const chars = {
     6: { name: 'Zarbon', gender: 'Male', race: 'Frieza Race', affiliation: 'Army of Frieza', ki: '20,000', maxKi: '30,000', image: 'https://res.cloudinary.com/dgtgbyo76/image/upload/v1699044531/jcdgte2shoaj2jh0ruob.webp' },
     7: { name: 'Dodoria', gender: 'Male', race: 'Frieza Race', affiliation: 'Army of Frieza', ki: '18,000', maxKi: '20,000', image: 'https://res.cloudinary.com/dgtgbyo76/image/upload/v1699044548/m2mixyphepp8qwcigb3g.webp' },
     8: { name: 'Ginyu', gender: 'Male', race: 'Frieza Race', affiliation: 'Army of Frieza', ki: '9,000', maxKi: '25,000', image: 'https://res.cloudinary.com/dgtgbyo76/image/upload/v1699129673/dxsl3rjhrfmajo2gealz.webp' },
-    9: { name: 'Cel', gender: 'Male', race: 'Android', affiliation: 'Freelancer', ki: '250,000,000', maxKi: '5,000,000,000', image: 'https://res.cloudinary.com/dgtgbyo76/image/upload/v1699044573/mz09ghskyzf0skprredi.webp' },
+    9: { name: 'Cell', gender: 'Male', race: 'Android', affiliation: 'Freelancer', ki: '250,000,000', maxKi: '5,000,000,000', image: 'https://res.cloudinary.com/dgtgbyo76/image/upload/v1699044573/mz09ghskyzf0skprredi.webp' },
     10: { name: 'Gohan', gender: 'Male', race: 'Saiyan', affiliation: 'Z Fighter', ki: '45,000,000', maxKi: '40,000,000,000,000,000,000,000,000', image: 'https://res.cloudinary.com/dgtgbyo76/image/upload/v1699044627/kigekwjt2m8nwopgvabv.webp' },
 };
 
 const randomKey = Object.keys(chars)[Math.floor(Math.random() * Object.keys(chars).length)];
 const answer = chars[randomKey];
+
+console.log("typeof randomkey" + typeof randomKey);
 
 let rawInput;
 let input;
@@ -53,23 +55,19 @@ function resetForm() {
 function charRow() {
     const row = document.createElement('tr');
 
-    // Create and append image cell
     const imgCell = document.createElement('td');
     imgCell.innerHTML = `<img src="${input.image}" alt="${input.name}" width="50">`;
     row.appendChild(imgCell);
 
-    // Verify and append cells for other properties
     row.appendChild(verify('name'));
     row.appendChild(verify('gender'));
     row.appendChild(verify('race'));
     row.appendChild(verify('affiliation'));
 
-    // Append Ki cell
     const kiCell = document.createElement('td');
     kiCell.textContent = ki;
     row.appendChild(kiCell);
 
-    // Append the row to the table
     table.appendChild(row);
 }
 
@@ -85,55 +83,6 @@ function verify(property) {
 function alreadyGuessed() {
     return guessed.includes(rawInput.toLowerCase());
 }
-
-/*
-
-function charRow() {
-    table.innerHTML += `<tr>
-<td><img src="${input.image}" alt="${input.name}" width="50"></td>
-            verify('name')
-            verify('gender')
-            <td>${verify('race')}</td>
-            <td>${verify('affiliation')}</td>
-            <td>${ki}</td>
-        </tr>`;
-}
-
-
-
-//WIP
-
-function verify(stuff){
-
-    //will try to make this work for everyone
-    let test = document.getElementById(stuff); 
-
-    console.log("Th type shit: " + test);
-
-
-    console.log("input: " +input[stuff]+ "   answer: " + stuff);
-
-
-    if(input[stuff] === answer[stuff]){ //not sure if this works 
-    console.log("i was right on: " + stuff);
-
-        //test.style.backgroundColor = "green";
-
-        return '<td style="backgroundColor=red"> ${input[stuff]} </td>';
-
-        //find a way to change that divs bg to green
-    }
-    //find a way to change that divs bg to red
-    console.log("i was wrong on: " + stuff);
-        //test.style.backgroundColor = "red";
-
-        return '<td style="backgroundColor=red"> ${input[stuff]} </td>';
-}
-
-
-//END OF WIP
-
-*/
 
 function verifyInput() {
     for (const key in chars) {
