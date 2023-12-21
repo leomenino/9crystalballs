@@ -12,19 +12,110 @@ let chars = {
     10:{name:'Gohan',gender:'Male',race:'Saiyan',affiliation:'Z Fighter',ki:'45,000,000',maxKi:'40,000,000,000,000,000,000,000,000',image:'https://res.cloudinary.com/dgtgbyo76/image/upload/v1699044627/kigekwjt2m8nwopgvabv.webp'},
 }
 
+const randomKey = Object.keys(chars)[Math.floor(Math.random() * Object.keys(chars).length)];
+const answer = chars[randomKey];
+
+
+let rawInput;
+let input;
+let ki;
+let guessed = [];
+
+
+document.getElementById('test').addEventListener("click", myFunction);
+
+
+console.log("Answer: " +answer.name);
+
+
+function myFunction(){
+    submitForm();
+
+    console.log("Submit: " + rawInput);
+    
+    verify();
+    endGame();
+    ki = findKi();
+    charRow();
+
+    console.log("Input: "+input.name);
+
+ resetForm();
+ input = undefined;
+}
+
 var table = document.getElementById('tbody');
 
-for (var key in chars) {
-    if (chars.hasOwnProperty(key)) {
-        table.innerHTML += '<tr>' +
-            '<td><img src="' + chars[key].image + '" alt="' + chars[key].name + '" width="50"></td>' +
-            '<td>' + chars[key].name + '</td>' +
-            '<td>' + chars[key].gender + '</td>' +
-            '<td>' + chars[key].race + '</td>' +
-            '<td>' + chars[key].affiliation + '</td>' +
-            '<td>' + chars[key].ki + '</td>' +
-            '<td>' + chars[key].maxKi + '</td>' +
+ function submitForm() {
+    rawInput = document.getElementById('name').value;
+}  
+
+function resetForm(){
+    document.getElementById('myForm').reset();
+}
+
+function charRow(){
+     table.innerHTML += '<tr>' +
+            '<td><img src="' + input.image + '" alt="' + input.name + '" width="50"></td>' +
+            '<td>' + input.name + '</td>' +
+            '<td>' + input.gender + '</td>' +
+            '<td>' + input.race + '</td>' +
+            '<td>' + input.affiliation + '</td>' +
+            '<td>' + ki + '</td>' +
             '</tr>';
+}
+
+function alreadyGuessed(){
+    return guessed.includes(rawInput.toLowerCase());
+
+}
+
+function verify(){
+
+for (var key in chars) {
+    
+    if(rawInput.toLowerCase() === chars[key].name.toLowerCase()){
+
+        if(alreadyGuessed()){
+            return;
+        }
+        input = chars[key];
+        guessed.push(input.name.toLowerCase());
+    }
+}
+}
+
+
+function findKi(){
+    if(answer.maxKi != input.maxKi){
+        if(answer.maxKi > input.maxKi){
+            return 'Hes stronger' ;
+        }
+        if(answer.maxKi < input.maxKi){
+            return 'Youre stronger'; 
+        }
+    }
+    return 'You are the same';
+
+    
+}
+
+
+function endGame(){
+    if(input.name === answer.name){
+    vanishForm();
+    }
+}
+function vanishForm() {
+    var formElements = document.querySelectorAll('#myForm label, #myForm input, #myForm button');
+
+    for (var i = 0; i < formElements.length; i++) {
+        formElements[i].style.display = 'none';
     }
 }
 
+
+
+            //'<td><img src="' + imgGoingUp + '" alt="' + imgGoingUp + '" width="50"></td>' 
+            //'<td><img src="' + imgGoingDown + '" alt="' + imgGoingDown + '" width="50"></td>'
+    //'<td><img src="' + imgCorrect + '" alt="' + imgCorrect + '" width="50"></td>'
