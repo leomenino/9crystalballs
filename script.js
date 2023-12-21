@@ -8,7 +8,7 @@ let chars = {
     6:{name:'Zarbon',gender:'Male',race:'Frieza Race',affiliation:'Army of Frieza',ki:'20,000',maxKi:'30,000',image:'https://res.cloudinary.com/dgtgbyo76/image/upload/v1699044531/jcdgte2shoaj2jh0ruob.webp'},
     7:{name:'Dodoria',gender:'Male',race:'Frieza Race',affiliation:'Army of Frieza',ki:'18,000',maxKi:'20,000',image:'https://res.cloudinary.com/dgtgbyo76/image/upload/v1699044548/m2mixyphepp8qwcigb3g.webp'},
     8:{name:'Ginyu',gender:'Male',race:'Frieza Race',affiliation:'Army of Frieza',ki:'9,000',maxKi:'25,000',image:'https://res.cloudinary.com/dgtgbyo76/image/upload/v1699129673/dxsl3rjhrfmajo2gealz.webp'},
-    9:{name:'Celula',gender:'Male',race:'Android',affiliation:'Freelancer',ki:'250,000,000',maxKi:'5,000,000,000',image:'https://res.cloudinary.com/dgtgbyo76/image/upload/v1699044573/mz09ghskyzf0skprredi.webp'},
+    9:{name:'Cel',gender:'Male',race:'Android',affiliation:'Freelancer',ki:'250,000,000',maxKi:'5,000,000,000',image:'https://res.cloudinary.com/dgtgbyo76/image/upload/v1699044573/mz09ghskyzf0skprredi.webp'},
     10:{name:'Gohan',gender:'Male',race:'Saiyan',affiliation:'Z Fighter',ki:'45,000,000',maxKi:'40,000,000,000,000,000,000,000,000',image:'https://res.cloudinary.com/dgtgbyo76/image/upload/v1699044627/kigekwjt2m8nwopgvabv.webp'},
 }
 
