@@ -28,7 +28,7 @@ function myFunction() {
 
     console.log(`Submit: ${rawInput}`);
 
-    verify();
+    verifyInput();
     endGame();
     ki = findKi();
     charRow();
@@ -42,29 +42,100 @@ function myFunction() {
 const table = document.getElementById('tbody');
 
 function submitForm() {
-    rawInput = document.getElementById('name').value;
+    rawInput = document.getElementById('inputName').value;
 }
 
 function resetForm() {
     document.getElementById('myForm').reset();
 }
 
+
 function charRow() {
-    table.innerHTML += `<tr>
-            <td><img src="${input.image}" alt="${input.name}" width="50"></td>
-            <td>${input.name}</td>
-            <td>${input.gender}</td>
-            <td>${input.race}</td>
-            <td>${input.affiliation}</td>
-            <td>${ki}</td>
-        </tr>`;
+    const row = document.createElement('tr');
+
+    // Create and append image cell
+    const imgCell = document.createElement('td');
+    imgCell.innerHTML = `<img src="${input.image}" alt="${input.name}" width="50">`;
+    row.appendChild(imgCell);
+
+    // Verify and append cells for other properties
+    row.appendChild(verify('name'));
+    row.appendChild(verify('gender'));
+    row.appendChild(verify('race'));
+    row.appendChild(verify('affiliation'));
+
+    // Append Ki cell
+    const kiCell = document.createElement('td');
+    kiCell.textContent = ki;
+    row.appendChild(kiCell);
+
+    // Append the row to the table
+    table.appendChild(row);
+}
+
+function verify(property) {
+    const cell = document.createElement('td');
+    cell.textContent = input[property];
+
+    cell.style.backgroundColor = input[property] === answer[property] ? 'green' : 'red';
+
+    return cell;
 }
 
 function alreadyGuessed() {
     return guessed.includes(rawInput.toLowerCase());
 }
 
-function verify() {
+/*
+
+function charRow() {
+    table.innerHTML += `<tr>
+<td><img src="${input.image}" alt="${input.name}" width="50"></td>
+            verify('name')
+            verify('gender')
+            <td>${verify('race')}</td>
+            <td>${verify('affiliation')}</td>
+            <td>${ki}</td>
+        </tr>`;
+}
+
+
+
+//WIP
+
+function verify(stuff){
+
+    //will try to make this work for everyone
+    let test = document.getElementById(stuff); 
+
+    console.log("Th type shit: " + test);
+
+
+    console.log("input: " +input[stuff]+ "   answer: " + stuff);
+
+
+    if(input[stuff] === answer[stuff]){ //not sure if this works 
+    console.log("i was right on: " + stuff);
+
+        //test.style.backgroundColor = "green";
+
+        return '<td style="backgroundColor=red"> ${input[stuff]} </td>';
+
+        //find a way to change that divs bg to green
+    }
+    //find a way to change that divs bg to red
+    console.log("i was wrong on: " + stuff);
+        //test.style.backgroundColor = "red";
+
+        return '<td style="backgroundColor=red"> ${input[stuff]} </td>';
+}
+
+
+//END OF WIP
+
+*/
+
+function verifyInput() {
     for (const key in chars) {
         if (rawInput.toLowerCase() === chars[key].name.toLowerCase()) {
             if (alreadyGuessed()) {
