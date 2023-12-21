@@ -112,6 +112,15 @@ function verify(property, id) {
 
     content.style.backgroundColor = input[property] === answer[property] ? 'green' : 'red';
     content.style.margin = '5px'; // Adjust as needed
+    content.style.width = '100px';
+    content.style.height = '100px';
+    content.style.textAlign = 'center';
+    content.style.fontSize='20px';
+    content.style.border = '5px solid black';
+    content.style.display = 'flex';
+    content.style.alignItems = 'center';
+    content.style.justifyContent = 'center';
+
 
     return content;
 }
